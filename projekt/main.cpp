@@ -6,6 +6,7 @@
 #include "Handlers/TableHandler.h"
 #include "Handlers/HeapHandler.h"
 #include "Handlers/ListHandler.h"
+
 using namespace std;
 
 void printMenu() {
@@ -20,6 +21,7 @@ void printMenu() {
 
 
 int main() {
+    Logger logger = Logger("../logs/project.log");
     cout << "Projekt Struktury danych i zlozonosc obliczeniowa";
     bool app = true;
     int choice;

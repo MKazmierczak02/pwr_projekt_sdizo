@@ -2,27 +2,33 @@
 // Created by ja on 2023-03-13.
 //
 
+#include "../utils/Logger.h"
+
 using namespace std;
 
 class DynamicTable {
+     Logger logger = Logger("../logs/dynamicTable.log");
 
      int size;
      int *table;
-
 public:
     DynamicTable() {
-        this->size=0;
+        this->size=0;                           // dane inicjalizacyjne, size=0, tablica wskazuje na null
         this->table= nullptr;
      }
+
      void add(int value){
          int * T = new int [ size +1 ];
-         for( int i = 0; i < size; i++ ) {
+         for( int i = 0; i < size; i++ ) {                      //przepisujemy nasza tabele do tabeli pomocniczej
              T [ i ] = table [ i ];
          }
-         delete [ ] table;
-         table = T;
-         *(table + size) = value;
+         delete [ ] table;                                      // zwalniamy miejsce
+         table = T;                                             // przypisujemy table
+         *(table + size) = value;                               // przypisujemy wartosc na koniec tabeli
          size ++;
+
+         logger.log("Adding an element to table: " + to_string(value) +
+         " changing size of table from: " + to_string(size-1) + " to: " + to_string(size) );
      }
 
     void del(int index){
