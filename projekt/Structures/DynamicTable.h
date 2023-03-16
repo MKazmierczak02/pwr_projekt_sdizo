@@ -42,11 +42,11 @@ public:
         }
      }
 
-     void del_front(){
+     void delFront(){
         del(0);
      }
 
-    void del_last(){
+    void delBack(){
         del(size-1);
     }
 

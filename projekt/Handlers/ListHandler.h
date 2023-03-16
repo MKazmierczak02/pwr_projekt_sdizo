@@ -2,18 +2,20 @@
 // Created by ja on 2023-03-15.
 //
 #include <iostream>
-#include "Heap.h"
+#include "../Structures/List.h"
 using namespace std;
 
 
-class HeapHandler {
+class ListHandler {
 
 public:
     static void printMenu(){
-        cout <<endl<<"KOPIEC"<<endl;
-        cout << "1. Wyswietl kopiec" << endl;
-        cout << "2. Dodaj element (push)" << endl;
-        cout << "3. Usun elelement (pop)" << endl;
+        cout <<endl<<"Lista dwukierunkowa"<<endl;
+        cout << "1. Wyswietl liste" << endl;
+        cout << "2. Dodaj element na poczatek" << endl;
+        cout << "3. Dodaj element na koniec" << endl;
+        cout << "4. Usun element z poczatku" << endl;
+        cout << "5. Usun element z konca" << endl;
         cout << "0. Wyjdz" << endl;
     }
 
@@ -21,7 +23,7 @@ public:
         bool app = true;
         int choice;
 
-        auto *heap = new Heap;
+        auto list = List();
 
 
         while(app){
@@ -29,19 +31,30 @@ public:
             cin >> choice;
             switch (choice) {
                 case 1: {
-                    cout << endl <<"Kopiec:" << endl;
-                    heap->print("","",0);
+                    cout << endl <<"Lista:" << endl;
+                    list.print();
                     break;
                 }
                 case 2: {
                     int value;
                     cout << endl << "Podaj wartosc" <<endl;
                     cin >> value;
-                    heap->push(value);
+                    list.insertFront(value);
                     break;
                 }
                 case 3: {
-                    heap->pop();
+                    int value;
+                    cout << endl << "Podaj wartosc" <<endl;
+                    cin >> value;
+                    list.insertBack(value);
+                    break;
+                }
+                case 4: {
+                    list.delFront();
+                    break;
+                }
+                case 5: {
+                    list.delBack();
                     break;
                 }
                 case 0: {

@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(main main.cpp DynamicTable.h TableHandler.h HeapHandler.h)
+add_executable(main main.cpp Structures/DynamicTable.h Handlers/TableHandler.h Handlers/HeapHandler.h Handlers/ListHandler.h)

@@ -3,8 +3,9 @@
 //
 
 #include <iostream>
-#include "TableHandler.h"
-#include "HeapHandler.h"
+#include "Handlers/TableHandler.h"
+#include "Handlers/HeapHandler.h"
+#include "Handlers/ListHandler.h"
 using namespace std;
 
 void printMenu() {
@@ -32,6 +33,7 @@ int main() {
                 break;
             }
             case 2: {
+                ListHandler::handle();
                 break;
             }
             case 3: {

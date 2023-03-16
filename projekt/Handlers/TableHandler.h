@@ -2,7 +2,7 @@
 // Created by ja on 2023-03-15.
 //
 #include <iostream>
-#include "DynamicTable.h"
+#include "../Structures/DynamicTable.h"
 using namespace std;
 
 
@@ -23,7 +23,7 @@ public:
         bool app = true;
         int choice;
 
-        auto *table = new DynamicTable;
+        auto table = DynamicTable();
 
 
         while(app){
@@ -32,29 +32,29 @@ public:
             switch (choice) {
                 case 1: {
                     cout << endl <<"Tablica:" << endl;
-                    table->print();
+                    table.print();
                     break;
                 }
                 case 2: {
                     int value;
                     cout << endl << "Podaj wartosc" <<endl;
                     cin >> value;
-                    table->add(value);
+                    table.add(value);
                     break;
                 }
                 case 3: {
                     int index;
                     cout << endl << "Podaj index" <<endl;
                     cin >> index;
-                    table->del(index);
+                    table.del(index);
                     break;
                 }
                 case 4: {
-                    table->del_front();
+                    table.delFront();
                     break;
                 }
                 case 5: {
-                    table->del_last();
+                    table.delBack();
                     break;
                 }
                 case 0: {
