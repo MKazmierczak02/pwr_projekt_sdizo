@@ -26,7 +26,7 @@ public:
      }
 
     void del(int index){
-        if (index < 1 || index > this->size) {
+        if (index >= 0 || index < this->size) {
             int *T = new int[size - 1];
             int mark = 0;
             for (int i = 0; i < size; i++) {
@@ -61,7 +61,7 @@ public:
 
     void print(){
         for (int i = 0; i < this->getSize(); i++) {
-            cout << this->get(i) << ", ";
+            cout << "T[" <<i<<  "] = " << this->get(i) << endl;
         }
     }
 

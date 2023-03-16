@@ -2,20 +2,18 @@
 // Created by ja on 2023-03-15.
 //
 #include <iostream>
-#include "DynamicTable.h"
+#include "Heap.h"
 using namespace std;
 
 
-class TableHandler {
+class HeapHandler {
 
 public:
     static void printMenu(){
-        cout <<endl<<"Tablica dynamiczna"<<endl;
-        cout << "1. Wyswietl tablice" << endl;
-        cout << "2. Dodaj element na koniec" << endl;
-        cout << "3. Usun elelement po indexie" << endl;
-        cout << "4. Usun element z przodu" << endl;
-        cout << "5. Usun element z tylu" << endl;
+        cout <<endl<<"KOPIEC"<<endl;
+        cout << "1. Wyswietl kopiec" << endl;
+        cout << "2. Dodaj element (push)" << endl;
+        cout << "3. Usun elelement (pop)" << endl;
         cout << "0. Wyjdz" << endl;
     }
 
@@ -23,7 +21,7 @@ public:
         bool app = true;
         int choice;
 
-        auto *table = new DynamicTable;
+        auto *heap = new Heap;
 
 
         while(app){
@@ -31,30 +29,19 @@ public:
             cin >> choice;
             switch (choice) {
                 case 1: {
-                    cout << endl <<"Tablica:" << endl;
-                    table->print();
+                    cout << endl <<"Kopiec:" << endl;
+                    heap->print("","",0);
                     break;
                 }
                 case 2: {
                     int value;
                     cout << endl << "Podaj wartosc" <<endl;
                     cin >> value;
-                    table->add(value);
+                    heap->push(value);
                     break;
                 }
                 case 3: {
-                    int index;
-                    cout << endl << "Podaj index" <<endl;
-                    cin >> index;
-                    table->del(index);
-                    break;
-                }
-                case 4: {
-                    table->del_front();
-                    break;
-                }
-                case 5: {
-                    table->del_last();
+                    heap->pop();
                     break;
                 }
                 case 0: {

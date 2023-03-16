@@ -3,8 +3,8 @@
 //
 
 #include <iostream>
-#include "DynamicTable.h"
 #include "TableHandler.h"
+#include "HeapHandler.h"
 using namespace std;
 
 void printMenu() {
@@ -28,14 +28,14 @@ int main() {
         cin >> choice;
         switch (choice) {
             case 1: {
-                TableHandler handler = *new TableHandler;
-                handler.handle();
+                TableHandler::handle();
                 break;
             }
             case 2: {
                 break;
             }
             case 3: {
+                HeapHandler::handle();
                 break;
             }
             case 4: {
