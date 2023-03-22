@@ -12,10 +12,12 @@ public:
     static void printMenu(){
         cout <<endl<<"Tablica dynamiczna"<<endl;
         cout << "1. Wyswietl tablice" << endl;
-        cout << "2. Dodaj element na koniec" << endl;
-        cout << "3. Usun elelement po indexie" << endl;
-        cout << "4. Usun element z przodu" << endl;
-        cout << "5. Usun element z tylu" << endl;
+        cout << "2. Dodaj element" << endl;
+        cout << "3. Usun elelement" << endl;
+        cout << "4. Wyszukaj element po wartości" << endl;
+        cout << "5. Wczytaj tablice z pliku" << endl;
+        cout << "6. Wypelnmij tablice losowymi wartosciami z zakresu 1-100" << endl;
+        cout << "7. Usun tablice" << endl;
         cout << "0. Wyjdz" << endl;
     }
 
@@ -36,25 +38,95 @@ public:
                     break;
                 }
                 case 2: {
-                    int value;
-                    cout << endl << "Podaj wartosc" <<endl;
-                    cin >> value;
-                    table.add(value);
+                    cout << "1. na przod" <<endl;
+                    cout << "2. na koniec" <<endl;
+                    cout << "3. na wybrany index" <<endl;
+                    int type;
+                    cin >> type;
+                    switch(type){
+                        case 1:{
+                            int value;
+                            cout << endl << "Podaj wartosc" <<endl;
+                            cin >> value;
+                            table.insertFront(value);
+                            break;
+                        }
+                        case 2:{
+                            int value;
+                            cout << endl << "Podaj wartosc" <<endl;
+                            cin >> value;
+                            table.insertBack(value);
+                            break;
+                        }
+                        case 3:{
+                            int index, value;
+                            cout << endl << "Podaj index" <<endl;
+                            cin >> index;
+                            cout << endl << "Podaj wartosc" <<endl;
+                            cin >> value;
+                            table.insertOnIndex(index, value);
+                            break;
+                        }
+                        default:{
+                            cout <<"Podano bledny rodzaj"<<endl;
+                            break;
+                        }
+                    }
                     break;
                 }
                 case 3: {
-                    int index;
-                    cout << endl << "Podaj index" <<endl;
-                    cin >> index;
-                    table.del(index);
+                    cout << "1. z przodu" <<endl;
+                    cout << "2. z konca" <<endl;
+                    cout << "3. z wybranego indexu" <<endl;
+                    int type;
+                    cin >> type;
+                    switch(type){
+                        case 1:{
+                            table.delFront();
+                            break;
+                        }
+                        case 2:{
+                            table.delBack();
+                            break;
+                        }
+                        case 3:{
+                            int index;
+                            cout << endl << "Podaj index" <<endl;
+                            cin >> index;
+                            table.del(index);
+                            break;
+                        }
+                        default:{
+                            cout <<"Podano bledny rodzaj"<<endl;
+                            break;
+                        }
+                    }
                     break;
                 }
                 case 4: {
-                    table.delFront();
+                    int value;
+                    cout << endl << "Podaj wartosc" <<endl;
+                    cin >> value;
+                    int index = table.indexOf(value);
+                    cout << "Wartosc "<< value << " znaduje sie pod indexem: " << index<<endl;
                     break;
                 }
-                case 5: {
-                    table.delBack();
+                case 5:{
+                    string file;
+                    cout << endl << "Podaj sciezke do pliku" <<endl;
+                    cin >> file;
+                    table.loadFromFile(file);
+                    break;
+                }
+                case 6:{
+                    int size;
+                    cout << endl << "Podaj wielkosc listy: " <<endl;
+                    cin >> size;
+                    table.fillUpWithRandomValues(size);
+                    break;
+                }
+                case 7:{
+                    table.deleteTable();
                     break;
                 }
                 case 0: {

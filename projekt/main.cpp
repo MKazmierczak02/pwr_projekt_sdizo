@@ -21,7 +21,6 @@ void printMenu() {
 
 
 int main() {
-    Logger logger = Logger("../logs/project.log");
     cout << "Projekt Struktury danych i zlozonosc obliczeniowa";
     bool app = true;
     int choice;
