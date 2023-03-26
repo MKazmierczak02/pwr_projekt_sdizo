@@ -22,11 +22,33 @@ class List {
 private:
     Elem* head;
     Elem* tail;
+    int count;
 
 public:
     List() {
         head = nullptr;
         tail = nullptr;
+        count = 0;
+    }
+
+    void printFront() {
+        Elem* temp = head;
+
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl<< "Wszystkich elementow jest: " << count <<endl;
+    }
+
+    void printBack() {
+        Elem* temp = tail;
+
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->prev;
+        }
+        cout << endl<< "Wszystkich elementow jest: " << count <<endl;
     }
 
     void pushFront(int value) {
@@ -37,10 +59,12 @@ public:
             tail = newElem;
         }
         else {
-            newElem->next = head;
             head->prev = newElem;
+            newElem->prev = nullptr;
+            newElem->next = head;
             head = newElem;
         }
+        count++;
     }
 
     void pushBack(int value) {
@@ -50,10 +74,12 @@ public:
             tail = newElem;
         }
         else {
+            newElem->next = nullptr;
             newElem->prev = tail;
             tail->next = newElem;
             tail = newElem;
         }
+        count++;
     }
 
     int popFront() {
@@ -71,6 +97,7 @@ public:
             head->prev = nullptr;
             delete temp;
         }
+        count--;
     }
 
     int popBack() {
@@ -90,28 +117,65 @@ public:
             tail->next = nullptr;
             delete temp;
         }
+        count--;
     }
 
-    void printFront() {
+    Elem* findElementByValue(int value){
         Elem* temp = head;
 
         while (temp != nullptr) {
-            cout << temp->data << " ";
+            if(temp->data==value){
+                return temp;
+            }
             temp = temp->next;
         }
-
-        cout << endl;
+        return nullptr;
     }
 
-    void printBack() {
-        Elem* temp = tail;
-
-        while (temp != nullptr) {
-            cout << temp->data << " ";
-            temp = temp->prev;
+    void insertBefore(Elem * elem, int value){
+        Elem * newElem;
+        if(elem == head) pushFront(value);
+        else
+        {
+            newElem = new Elem(value);
+            newElem->next = elem;
+            newElem->prev = elem->prev;
+            elem->prev->next = newElem;
+            elem->prev = newElem;
+            count++;
         }
+    }
 
-        cout << endl;
+    void insertAfter ( Elem * elem, int value )
+    {
+        Elem * newElem;
+
+        if(elem == tail) pushBack( value);
+        else
+        {
+            newElem = new Elem(value);
+            newElem->next = elem->next;
+            newElem->prev = elem;
+            elem->next->prev = newElem;
+            elem->next = newElem;
+            count++;
+        }
+    }
+
+    void deleteItem(Elem * elem){
+        if(elem->prev) {
+            elem->prev->next = elem->next;
+        }else {
+            head = elem->next;
+        }
+        if(elem->next){
+            elem->next->prev = elem->prev;
+        }
+        else {
+            tail = elem->prev;
+        }
+        delete elem;
+        count--;
     }
 
     void loadFromFile(const string& fileName) {

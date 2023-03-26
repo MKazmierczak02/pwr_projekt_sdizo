@@ -52,11 +52,13 @@ public:
                             break;
                         }
                     }
+                    break;
                 }
                 case 2: {
                     cout << "1. na przod" <<endl;
                     cout << "2. na koniec" <<endl;
-                    cout << "3. na wybrany index" <<endl;
+                    cout << "3. przed wybranym elementem" <<endl;
+                    cout << "4. za wybranym elementem" <<endl;
                     int type;
                     cin >> type;
                     switch(type){
@@ -74,8 +76,32 @@ public:
                             list.pushBack(value);
                             break;
                         }
-                        case 3:{
-                            //TODO: wstawianie na wybrany
+                        case 3: {
+                            int elemvalue, value;
+                            cout << endl << "Podaj wartosc elementu przed ktorym chcesz umiescic" << endl;
+                            cin >> elemvalue;
+                            Elem *elem = list.findElementByValue(elemvalue);
+                            if (elem != nullptr) {
+                            cout << endl << "Podaj wartosc ktora chcesz dodac" << endl;
+                            cin >> value;
+                            list.insertBefore(elem, value);
+                            } else {
+                                cout << endl << "Nie ma takiego elementu" << endl;
+                            }
+                            break;
+                        }
+                        case 4:{
+                            int elemvalue, value;
+                            cout << endl << "Podaj wartosc elementu za ktorym chcesz umiescic" <<endl;
+                            cin >> elemvalue;
+                            Elem* elem = list.findElementByValue(elemvalue);
+                            if (elem != nullptr) {
+                                cout << endl << "Podaj wartosc ktora chcesz dodac" << endl;
+                                cin >> value;
+                                list.insertAfter(elem, value);
+                            } else {
+                                cout << endl << "Nie ma takiego elementu" << endl ;
+                            }
                             break;
                         }
                         default:{
@@ -88,7 +114,7 @@ public:
                 case 3: {
                     cout << "1. z przodu" <<endl;
                     cout << "2. z konca" <<endl;
-                    cout << "3. z wybranego index" <<endl;
+                    cout << "3. z wybrana wartoscia" <<endl;
                     int type;
                     cin >> type;
                     switch(type){
@@ -101,7 +127,15 @@ public:
                             break;
                         }
                         case 3:{
-                            //TODO: usuwanie z dowolnego miejsca
+                            int elemvalue, value;
+                            cout << endl << "Podaj wartosc elementu ktory chcesz usunac" <<endl;
+                            cin >> elemvalue;
+                            Elem* elem = list.findElementByValue(elemvalue);
+                            if (elem != nullptr) {
+                                list.deleteItem(elem);
+                            } else {
+                                cout << endl << "Nie ma takiego elementu" << endl ;
+                            }
                             break;
                         }
                         default:{
