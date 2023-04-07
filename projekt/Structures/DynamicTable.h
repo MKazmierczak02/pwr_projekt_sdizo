@@ -3,6 +3,7 @@
 //
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ public:
       * Wstawienie wartosci na podany index tablicy
       */
     void insertOnIndex(int index, int value){
-        if(index<0 || index >=size){
+        if(index<0 || index >size){
             cout <<"index out of bounds" << endl;
             return;
         }
@@ -69,8 +70,8 @@ public:
     /*
     * Usuniecie ostatniego elementu tablicy
     */
-    void del(int index){
-        if (index >= 0 || index < this->size) {
+    bool del(int index){
+        if (index >= 0 && index < this->size) {
             int *T = new int[size - 1];
             int j = 0;
             for (int i = 0; i < size; i++) {
@@ -83,28 +84,31 @@ public:
             delete[] table;
             size--;
             table = T;
+            return true;
+        } else{
+            return false;
         }
      }
 
     /*
     * Usuniecie pierwszego elementu tablicy
     */
-     void delFront(){
-        del(0);
+     bool delFront(){
+        return del(0);
      }
 
     /*
     * Usuniecie ostatniego elementu tablicy
     */
-    void delBack(){
-        del(size-1);
+    bool delBack(){
+        return del(size-1);
     }
 
      /*
      * Pobranie wartosci elementu o podanym indexie
      */
      int get(int index){
-         if(index < size || index >= 0){
+         if(index < size && index >= 0){
              return (*(table + index));
          } else {
              return -1;
@@ -112,6 +116,7 @@ public:
     }
 
     void print(){
+         cout<<endl;
         for (int i = 0; i < this->getSize(); i++) {
             cout << "T[" <<i<<  "] = " << this->get(i) << endl;
         }

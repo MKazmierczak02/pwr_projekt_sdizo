@@ -87,17 +87,23 @@ public:
             return -1;
         }
         else if (head == tail) {
+            int val = head-> data;
             delete head;
             head = nullptr;
             tail = nullptr;
+            count--;
+            return val;
         }
         else {
+            int val = head->data;
             Elem* temp = head;
             head = head->next;
             head->prev = nullptr;
             delete temp;
+            count--;
+            return val;
         }
-        count--;
+
     }
 
     int popBack() {
@@ -113,9 +119,11 @@ public:
         }
         else {
             Elem* temp = tail;
+            int val = tail -> data;
             tail = tail->prev;
             tail->next = nullptr;
             delete temp;
+            return val;
         }
         count--;
     }
@@ -162,7 +170,8 @@ public:
         }
     }
 
-    void deleteItem(Elem * elem){
+    void deleteItem(int value){
+        Elem * elem = findElementByValue(value);
         if(elem->prev) {
             elem->prev->next = elem->next;
         }else {

@@ -1,0 +1,1 @@
+cmd='C:/Users/ja/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/cmake/win/x64/bin/cmake.exe;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'

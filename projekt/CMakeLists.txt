@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.24)
-project(untitled)
+project(projekt_sdizo)
 
-set(CMAKE_CXX_STANDARD 17)
+enable_testing()
 
-add_executable(main main.cpp Structures/DynamicTable.h Handlers/TableHandler.h Handlers/HeapHandler.h Handlers/ListHandler.h utils/Logger.h)
+set(SOURCE_FILES main.cpp)
+add_executable(project_run ${SOURCE_FILES})
+
+add_subdirectory(Structures)
+add_subdirectory(tests)
+add_subdirectory(Handlers)
+
+

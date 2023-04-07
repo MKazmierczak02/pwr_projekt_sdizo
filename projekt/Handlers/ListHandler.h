@@ -59,6 +59,7 @@ public:
                     cout << "2. na koniec" <<endl;
                     cout << "3. przed wybranym elementem" <<endl;
                     cout << "4. za wybranym elementem" <<endl;
+                    cout << "5. Na wybrany index" <<endl;
                     int type;
                     cin >> type;
                     switch(type){
@@ -102,6 +103,15 @@ public:
                             } else {
                                 cout << endl << "Nie ma takiego elementu" << endl ;
                             }
+                            break;
+                        }case 5:{
+                            int index, value;
+                            cout << endl << "Podaj index" <<endl;
+                            cin >> index;
+                            cout << endl << "Podaj wartosc ktora chcesz dodac" << endl;
+                            cin >> value;
+                            list.insertOnIndex(index, value); //TODO: dokonczyc
+
                             break;
                         }
                         default:{

@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/untitled")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/projekt_sdizo")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,22 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/ja/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/ja/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/objdump.exe")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Structures/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/tests/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Handlers/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
