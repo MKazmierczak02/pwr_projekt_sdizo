@@ -1,7 +1,7 @@
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(runStructuresTests
-        dynamictabletests.cpp ListTests.cpp)
+        TableTests.cpp ListTests.cpp HeapTests.cpp)
 
 target_link_libraries(runStructuresTests gtest gtest_main)
 

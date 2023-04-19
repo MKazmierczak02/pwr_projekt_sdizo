@@ -2,7 +2,7 @@
 // Created by ja on 2023-03-15.
 //
 #include <iostream>
-#include "../Structures/DynamicTable.h"
+#include "../Structures/Table.h"
 using namespace std;
 
 
@@ -25,7 +25,7 @@ public:
         bool app = true;
         int choice;
 
-        auto table = DynamicTable();
+        auto table = Table();
 
 
         while(app){
@@ -126,7 +126,7 @@ public:
                     break;
                 }
                 case 7:{
-                    table.deleteTable();
+                    table.clear();
                     break;
                 }
                 case 0: {

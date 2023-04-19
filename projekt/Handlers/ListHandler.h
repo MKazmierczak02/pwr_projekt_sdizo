@@ -110,8 +110,7 @@ public:
                             cin >> index;
                             cout << endl << "Podaj wartosc ktora chcesz dodac" << endl;
                             cin >> value;
-                            list.insertOnIndex(index, value); //TODO: dokonczyc
-
+                            list.insertOnIndex(index, value);
                             break;
                         }
                         default:{
@@ -142,7 +141,7 @@ public:
                             cin >> elemvalue;
                             Elem* elem = list.findElementByValue(elemvalue);
                             if (elem != nullptr) {
-                                list.deleteItem(elem);
+                                list.deleteItem(elemvalue);
                             } else {
                                 cout << endl << "Nie ma takiego elementu" << endl ;
                             }

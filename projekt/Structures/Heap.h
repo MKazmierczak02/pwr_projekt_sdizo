@@ -23,9 +23,8 @@ public:
         this -> tab = nullptr;
     }
 
-
     //Źródło Stackoverflow
-    void print ( const string& sp, const string& sn, int v )
+    void print ( const string& sp = "", const string& sn = "", int v = 0)
     {
         string s;
         if( v < size )
@@ -47,7 +46,6 @@ public:
     void pop()
     {
         int i, j, v;
-
         if(size--)
         {
             v = tab [size];
@@ -95,6 +93,42 @@ public:
         size++;
         tab = temp;
     }
+
+    int getSize(){
+        return size;
+    }
+
+    int peek() const {
+        if (size == 0) {
+                cerr << "Heap is empty" << endl;
+                exit(EXIT_FAILURE);
+        }
+        return tab[0];
+    }
+
+    int search(int value) const {
+        for (int i = 0; i < size; i++) {
+            if (tab[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    void fillUpWithRandomValues(int size) {
+        for(int i =0; i<size; i++){
+            push(1+rand()%1000000000);
+        }
+    }
+
+    void clear() {
+        delete[] tab;
+        tab = nullptr;
+        size = 0;
+    }
+
+    bool isEmpty() const {
+        return size == 0;
+    }
+
 };
-
-

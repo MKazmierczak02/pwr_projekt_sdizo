@@ -14,6 +14,7 @@ public:
         cout << "1. Wyswietl kopiec" << endl;
         cout << "2. Dodaj element (push)" << endl;
         cout << "3. Usun elelement (pop)" << endl;
+        cout << "4. Znajdz index elementu" <<endl;
         cout << "0. Wyjdz" << endl;
     }
 
@@ -30,7 +31,7 @@ public:
             switch (choice) {
                 case 1: {
                     cout << endl <<"Kopiec:" << endl;
-                    heap.print("","",0);
+                    heap.print();
                     break;
                 }
                 case 2: {
@@ -42,6 +43,14 @@ public:
                 }
                 case 3: {
                     heap.pop();
+                    break;
+                }
+                case 4: {
+                    int value;
+                    cout << endl << "Podaj wartosc" <<endl;
+                    cin >> value;
+                    int index = heap.search(value);
+                    cout << "Element: " << value << " znajduje sie pod indexem: " << index <<endl;
                     break;
                 }
                 case 0: {

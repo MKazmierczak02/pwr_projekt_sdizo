@@ -9,5 +9,4 @@ add_executable(project_run ${SOURCE_FILES})
 add_subdirectory(Structures)
 add_subdirectory(tests)
 add_subdirectory(Handlers)
-
-
+add_subdirectory(TimeTests)

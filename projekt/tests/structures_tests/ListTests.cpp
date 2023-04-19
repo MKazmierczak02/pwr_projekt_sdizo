@@ -44,7 +44,7 @@ TEST(ListTest, DeleteItemMiddle) {
     list.pushBack(3);
     Elem* elem = list.findElementByValue(2);
     ASSERT_NE(elem, nullptr);
-    list.deleteItem(elem);
+    list.deleteItem(2);
     EXPECT_EQ(list.popFront(), 1);
     EXPECT_EQ(list.popFront(), 3);
     EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
@@ -58,7 +58,7 @@ TEST(ListTest, DeleteItemFirst) {
     list.pushBack(3);
     Elem* elem = list.findElementByValue(1);
     ASSERT_NE(elem, nullptr);
-    list.deleteItem(elem);
+    list.deleteItem(1);
     EXPECT_EQ(list.popFront(), 2);
     EXPECT_EQ(list.popFront(), 3);
     EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
@@ -72,14 +72,14 @@ TEST(ListTest, DeleteItemLast) {
     list.pushBack(3);
     Elem* elem = list.findElementByValue(3);
     ASSERT_NE(elem, nullptr);
-    list.deleteItem(elem);
+    list.deleteItem(3);
     EXPECT_EQ(list.popFront(), 1);
     EXPECT_EQ(list.popFront(), 2);
     EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
 }
 
 // Test wczytywania danych z pliku
-TEST(ListTest, LoadFromFile) {
+TEST(ListTest, FullTests) {
     List list;
     list.loadFromFile("tab1.txt");
     list.deleteItem(6);
@@ -87,10 +87,12 @@ TEST(ListTest, LoadFromFile) {
     list.deleteItem(2);
     list.deleteItem(4);
     list.deleteItem(8);
-    list.pushOnIndex();
-
-
-
-
+    list.printFront();
+    list.insertOnIndex(0,2);
+    list.insertOnIndex(1,6);
+    list.insertOnIndex(2,8);
+    list.insertOnIndex(1,4);
+    list.insertOnIndex(0,0);
+    list.printFront();
 }
 

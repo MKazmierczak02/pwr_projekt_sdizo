@@ -7,13 +7,13 @@
 
 using namespace std;
 
-class DynamicTable {
+class Table {
 
      int size;
      int *table;
 public:
-    DynamicTable() {
-        this->size=0;                           // dane inicjalizacyjne, size=0, tablica wskazuje na null
+    Table() {
+        this->size=0;           // dane inicjalizacyjne, size=0, tablica wskazuje na null
         this->table= nullptr;
      }
 
@@ -49,9 +49,9 @@ public:
       * Wstawienie wartosci na podany index tablicy
       */
     void insertOnIndex(int index, int value){
-        if(index<0 || index >size){
-            cout <<"index out of bounds" << endl;
-            return;
+        if(index<0 || index>size){
+            cerr << "Index out of bounds" << endl;
+            exit(EXIT_FAILURE);
         }
         int * T = new int [ ++size ];
         int j = 0;
@@ -86,7 +86,8 @@ public:
             table = T;
             return true;
         } else{
-            return false;
+            cerr << "Index out of bounds" << endl;
+            exit(EXIT_FAILURE);
         }
      }
 
@@ -172,11 +173,11 @@ public:
      */
     void fillUpWithRandomValues(int size) {
         for(int i =0; i<size; i++){
-            insertBack(1+rand()%100);
+            insertBack(1+rand()%1000000000);
         }
     }
 
-    void deleteTable(){
+    void clear(){
         delete [ ] table;
         table = nullptr;
         size=0;

@@ -6,9 +6,9 @@ using namespace std;
 
 class Elem {
 public:
-    int data;
-    Elem* next;
-    Elem* prev;
+    int data;   // - przechowuje wartość elementu
+    Elem* next; // - wskazuje na następny element listy
+    Elem* prev; // - wskazuje na poprzedni element listy
 
     explicit Elem(int value) {
         data = value;
@@ -20,25 +20,24 @@ public:
 class List {
 
 private:
-    Elem* head;
-    Elem* tail;
-    int count;
+    Elem *head; //  - wskazuje na pierwszy element listy
+    Elem *tail; // - wskazuje na ostatni element listy
+    int size; // - przechowuje ilość elementów w liście
 
 public:
     List() {
         head = nullptr;
         tail = nullptr;
-        count = 0;
+        size = 0;
     }
 
     void printFront() {
         Elem* temp = head;
-
         while (temp != nullptr) {
             cout << temp->data << " ";
             temp = temp->next;
         }
-        cout << endl<< "Wszystkich elementow jest: " << count <<endl;
+        cout << endl<< "Wszystkich elementow jest: " << size <<endl;
     }
 
     void printBack() {
@@ -48,38 +47,47 @@ public:
             cout << temp->data << " ";
             temp = temp->prev;
         }
-        cout << endl<< "Wszystkich elementow jest: " << count <<endl;
+        cout << endl<< "Wszystkich elementow jest: " << size <<endl;
     }
 
     void pushFront(int value) {
         Elem* newElem = new Elem(value);
+        newElem->prev = NULL;
+        newElem->next = head;
+        head  = newElem;
+        if( newElem->next ) newElem->next->prev = newElem;
+        else tail = newElem;
+        size++;
+    }
 
-        if (head == nullptr) {
-            head = newElem;
-            tail = newElem;
+    void insertOnIndex(int index, int value){
+        if (index==0){
+            pushFront(value);
+        } else if (index==size+1) {
+            pushBack(value);
+        } else{
+            Elem* prev = get(index-1);
+            Elem* newElem = new Elem(value);
+            newElem->next = prev->next;
+            newElem->prev = prev;
+            if (prev->next != nullptr){
+                prev->next->prev=newElem;
+            }
+            prev->next = newElem;
+            size++;
         }
-        else {
-            head->prev = newElem;
-            newElem->prev = nullptr;
-            newElem->next = head;
-            head = newElem;
-        }
-        count++;
     }
 
     void pushBack(int value) {
         Elem* newElem = new Elem(value);
-        if (head == nullptr) {
-            head = newElem;
-            tail = newElem;
-        }
-        else {
-            newElem->next = nullptr;
-            newElem->prev = tail;
-            tail->next = newElem;
-            tail = newElem;
-        }
-        count++;
+
+        newElem->next = NULL;
+        newElem->prev = tail;
+        tail  = newElem;
+
+        if( newElem->prev ) newElem->prev->next = newElem;
+        else head = newElem;
+        size++;
     }
 
     int popFront() {
@@ -91,7 +99,7 @@ public:
             delete head;
             head = nullptr;
             tail = nullptr;
-            count--;
+            size--;
             return val;
         }
         else {
@@ -100,7 +108,7 @@ public:
             head = head->next;
             head->prev = nullptr;
             delete temp;
-            count--;
+            size--;
             return val;
         }
 
@@ -115,6 +123,7 @@ public:
             delete head;
             head = nullptr;
             tail = nullptr;
+            size--;
             return val;
         }
         else {
@@ -123,9 +132,10 @@ public:
             tail = tail->prev;
             tail->next = nullptr;
             delete temp;
+            size--;
             return val;
         }
-        count--;
+
     }
 
     Elem* findElementByValue(int value){
@@ -150,7 +160,7 @@ public:
             newElem->prev = elem->prev;
             elem->prev->next = newElem;
             elem->prev = newElem;
-            count++;
+            size++;
         }
     }
 
@@ -166,12 +176,13 @@ public:
             newElem->prev = elem;
             elem->next->prev = newElem;
             elem->next = newElem;
-            count++;
+            size++;
         }
     }
 
     void deleteItem(int value){
         Elem * elem = findElementByValue(value);
+        if (elem==nullptr) return;
         if(elem->prev) {
             elem->prev->next = elem->next;
         }else {
@@ -184,7 +195,25 @@ public:
             tail = elem->prev;
         }
         delete elem;
-        count--;
+        size--;
+    }
+
+    Elem* get(int index){
+        if(index>=0 && index<size){
+        Elem* temp = head;
+
+        for(int i=0; i<index; i++){
+            temp=temp->next;
+        }
+        return temp;
+        }
+        return nullptr;
+    }
+
+    void clear(){
+        head = nullptr;
+        tail = nullptr;
+        size = 0;
     }
 
     void loadFromFile(const string& fileName) {
@@ -216,7 +245,7 @@ public:
 
     void fillUpWithRandomValues(int size) {
         for(int i =0; i<size; i++){
-            pushFront(1+rand()%100);
+            pushFront(1+rand()%1000000000);
         }
     }
 };
