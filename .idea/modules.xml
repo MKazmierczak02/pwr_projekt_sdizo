@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/projekt_sdizo_mk.iml" filepath="$PROJECT_DIR$/.idea/projekt_sdizo_mk.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pwr_projekt_sdizo.iml" filepath="$PROJECT_DIR$/.idea/pwr_projekt_sdizo.iml" />
     </modules>
   </component>

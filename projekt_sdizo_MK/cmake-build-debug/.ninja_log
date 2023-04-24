@@ -1,0 +1,24 @@
+# ninja log v5
+4	7849	7025753648822433	tests/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	5265391698109ad6
+2	341	7040587836533183	build.ninja	d73c9045fde6b10f
+7852	10293	7025753673361718	lib/libgtest.a	29193dbe3537149c
+1	1718	7025312480794852	tests/CMakeFiles/my_tests.dir/test.cpp.obj	2810991de48d3b6f
+9	1537	7025753585796980	tests/lib/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	c25ca766462cbc14
+6	1521	7025776013804498	tests/structures_tests/CMakeFiles/runStructuresTests.dir/dynamictabletests.cpp.obj	d7c92d1edfab3bb0
+10293	10366	7025753674089502	lib/libgtest_main.a	8990687e49d35664
+2069	8048	7040506070833674	tests/structures_tests/runStructuresTests.exe	bb57e2b4d0e0ab1a
+1415	2847	7039824498782730	tests/structures_tests/CMakeFiles/runStructuresTests.dir/ListTests.cpp.obj	cfd80413dd85a931
+35	3467	7040504323358229	tests/structures_tests/CMakeFiles/runStructuresTests.dir/HeapTests.cpp.obj	54c89efbc9beff37
+12	1611	7039824486415813	tests/structures_tests/CMakeFiles/runStructuresTests.dir/TableTests.cpp.obj	f59f6579c368bd21
+5	1699	7029340025313415	TimeTests/CMakeFiles/runTimeTests.dir/ListTimeTests.cpp.obj	c21d3eae7f353cbe
+4	125	7029341260450689	TimeTests/runTimeTests.exe	a25725d1be1d74f
+4	1549	7029340689762064	TimeTests/CMakeFiles/runTimeTests.dir/TableTimeTests.cpp.obj	63f36070ed599bba
+4	2069	7040506011202672	tests/structures_tests/CMakeFiles/runStructuresTests.dir/BSTTests.cpp.obj	cb77c2edba56f723
+2247	3337	7040574570920601	projekt_sdizo.exe	d8a1f63df79bd087
+8	2246	7040574560548353	CMakeFiles/projekt_sdizo.dir/main.cpp.obj	b5e063fac46cd413
+13	1769	7040564125603228	tests/lib/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	c00ea27516ddac75
+9	2904	7040564136927256	tests/lib/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	b847d54a1960d73a
+10	341	7040564689095609	lib/libgmock.a	bb19eb68c26bf079
+342	399	7040564689673857	lib/libgmock_main.a	e7079f43276ae336
+7	658	7040588552745811	CMakeFiles/projekt_sdizo.dir/main.cpp.obj	15d5679b4852871a
+659	1086	7040588556964522	projekt_sdizo.exe	d8a1f63df79bd087
