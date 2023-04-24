@@ -1,1 +1,2 @@
-# pwr_projekt_sdizo
+# Projekt Struktury Danych i Złożoność Obliczeniowa
+autor: Michał Kaźmierczak
