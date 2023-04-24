@@ -1,4 +1,4 @@
-C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/CMakeFiles/project_run.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/CMakeFiles/projekt_sdizo.dir
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/CMakeFiles/test.dir
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
@@ -67,3 +67,10 @@ C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Han
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Handlers/CMakeFiles/install.dir
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Handlers/CMakeFiles/install/local.dir
 C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Handlers/CMakeFiles/install/strip.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/test.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/edit_cache.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/rebuild_cache.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/list_install_components.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/install.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/install/local.dir
+C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/CMakeFiles/install/strip.dir

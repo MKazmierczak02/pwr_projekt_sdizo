@@ -7,3 +7,4 @@
 subdirs("Structures")
 subdirs("tests")
 subdirs("Handlers")
+subdirs("TimeTests")

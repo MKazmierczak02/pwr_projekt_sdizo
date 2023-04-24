@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
-#include "../../Structures/List.h"
+#include "../../Structures/List.cpp"
 
-// Test dodawania elementów na początku listy
 TEST(ListTest, PushFront) {
     List list;
     list.pushFront(1);
@@ -10,10 +9,9 @@ TEST(ListTest, PushFront) {
     EXPECT_EQ(list.popFront(), 3);
     EXPECT_EQ(list.popFront(), 2);
     EXPECT_EQ(list.popFront(), 1);
-    EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
+    EXPECT_EQ(list.popFront(), -1);
 }
 
-// Test dodawania elementów na końcu listy
 TEST(ListTest, PushBack) {
     List list;
     list.pushBack(1);
@@ -22,10 +20,9 @@ TEST(ListTest, PushBack) {
     EXPECT_EQ(list.popFront(), 1);
     EXPECT_EQ(list.popFront(), 2);
     EXPECT_EQ(list.popFront(), 3);
-    EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
+    EXPECT_EQ(list.popFront(), -1);
 }
 
-// Test wyszukiwania elementu po wartości
 TEST(ListTest, FindElementByValue) {
     List list;
     list.pushFront(1);
@@ -36,7 +33,6 @@ TEST(ListTest, FindElementByValue) {
     EXPECT_EQ(elem->data, 2);
 }
 
-// Test usuwania elementu ze środka listy
 TEST(ListTest, DeleteItemMiddle) {
     List list;
     list.pushBack(1);
@@ -47,10 +43,9 @@ TEST(ListTest, DeleteItemMiddle) {
     list.deleteItem(2);
     EXPECT_EQ(list.popFront(), 1);
     EXPECT_EQ(list.popFront(), 3);
-    EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
+    EXPECT_EQ(list.popFront(), -1);
 }
 
-// Test usuwania pierwszego elementu z listy
 TEST(ListTest, DeleteItemFirst) {
     List list;
     list.pushBack(1);
@@ -61,10 +56,9 @@ TEST(ListTest, DeleteItemFirst) {
     list.deleteItem(1);
     EXPECT_EQ(list.popFront(), 2);
     EXPECT_EQ(list.popFront(), 3);
-    EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
+    EXPECT_EQ(list.popFront(), -1);
 }
 
-// Test usuwania ostatniego elementu z listy
 TEST(ListTest, DeleteItemLast) {
     List list;
     list.pushBack(1);
@@ -75,10 +69,9 @@ TEST(ListTest, DeleteItemLast) {
     list.deleteItem(3);
     EXPECT_EQ(list.popFront(), 1);
     EXPECT_EQ(list.popFront(), 2);
-    EXPECT_EQ(list.popFront(), -1); // oczekiwany brak elementów
+    EXPECT_EQ(list.popFront(), -1);
 }
 
-// Test wczytywania danych z pliku
 TEST(ListTest, FullTests) {
     List list;
     list.loadFromFile("tab1.txt");

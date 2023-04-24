@@ -2,9 +2,10 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "../Structures/Table.cpp"
+#include <fstream>
+#include "../Structures/BST.cpp"
 using namespace std;
-vector<int> sizes = {5000, 25000, 50000, 75000, 100000}; // rozmiary listy do przetestowania
+vector<int> sizes = {5000, 10000, 15000, 20000, 25000,27500, 30000,32500, 35000,40000,45000, 50000,65000,70000, 75000,80000}; // rozmiary listy do przetestowania
 
 long long int read_QPC()
 {
@@ -13,25 +14,22 @@ long long int read_QPC()
     return((long long int)count.QuadPart);
 }
 
-int runtests(){
+void runtests(){
     std::ofstream outfile("output.txt");
     std::cout.rdbuf(outfile.rdbuf());
-    Table table = *new Table();
+    BST bst = *new BST();
     long long int frequency, start, elapsed;
     QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     for (int size : sizes) {
-        table.clear();
-        table.fillUpWithRandomValues(size);
+        bst.clear();
+        bst.fillUpWithRandomValues(size);
         start = read_QPC();
 //        testy:
-//        table.insertFront(4);
-//        table.insertBack(4);
-//        table.get(size-1);
-        table.del(size-1);
+        bst.insert(999);
         elapsed = read_QPC() - start;
 //        cout << fixed << setprecision(5) << (float)elapsed /frequency << "\n"; //Time [s]
 //        cout << setprecision(5) << (1000.0 * elapsed) /frequency << "\n";   // Time [ms]
-        cout << setprecision(5) << (1000000.0 * elapsed) /frequency << "\n"; // Time [us]
+        cout <<size<<"    "<< setprecision(5) << (1000000.0 * elapsed) /frequency << "\n"; // Time [us]
 //        cout << setprecision(5) << (1000000000.0 * elapsed) /frequency << "\n"; // "Time [ns]
 
     }

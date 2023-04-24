@@ -1,9 +1,5 @@
-//
-// Created by ja on 2023-03-13.
-//
 #include <fstream>
 #include <iostream>
-#include <filesystem>
 
 using namespace std;
 

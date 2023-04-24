@@ -1,8 +1,5 @@
-//
-// Created by ja on 2023-03-15.
-//
 #include <iostream>
-#include "../Structures/Table.h"
+#include "../Structures/Table.cpp"
 using namespace std;
 
 
@@ -16,7 +13,7 @@ public:
         cout << "3. Usun elelement" << endl;
         cout << "4. Wyszukaj element po wartości" << endl;
         cout << "5. Wczytaj tablice z pliku" << endl;
-        cout << "6. Wypelnmij tablice losowymi wartosciami z zakresu 1-100" << endl;
+        cout << "6. Wypelnij tablice losowymi wartosciami z zakresu 1-100" << endl;
         cout << "7. Usun tablice" << endl;
         cout << "0. Wyjdz" << endl;
     }

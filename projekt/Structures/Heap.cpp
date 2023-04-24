@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <ctime>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -46,21 +46,22 @@ public:
     void pop()
     {
         int i, j, v;
-        if(size--)
+        if(size>0)
         {
-            v = tab [size];
+            v = tab [size-1];
             i = 0;
             j = 1;
 
-            while( j < size )
+            while( j < size -1 )
             {
-                if( j + 1 < size && tab [ j + 1 ] > tab [ j ] ) j++;
+                if( j  < size && tab [ j + 1 ] > tab [ j ] ) j++;
                 if( v >= tab [ j ] ) break;
                 tab [ i ] = tab [ j ];
                 i = j;
-                j = 2 * j + 1;
+                j = 2 * j + 1;          // index lewego syna
             }
             tab [ i ] = v;
+            size--;
             int *temp = new int [size];
             for (int i=0; i<size;i++){
                 temp[i]=tab[i];
@@ -81,13 +82,13 @@ public:
         delete [] tab;
 
         i = size;
-        j = ( i - 1 ) / 2;
+        j = ( i - 1 ) / 2;    // index rodzica
 
         while( i > 0 && temp [ j ] < value)
         {
             temp [ i ] = temp [ j ];
             i = j;
-            j = ( i - 1 ) / 2;
+            j = ( i - 1 ) / 2;   // index rodzica
         }
         temp[i] = value;
         size++;
@@ -117,8 +118,35 @@ public:
 
     void fillUpWithRandomValues(int size) {
         for(int i =0; i<size; i++){
-            push(1+rand()%1000000000);
+            push(1+rand()%100);
         }
+    }
+
+    void loadFromFile(const string& fileName) {
+        fstream file(fileName);
+        int size;
+        int val;
+        if(file.is_open())
+        {
+            file >> size;
+            if(file.fail())
+                cout << "File error - READ SIZE" << endl;
+            else
+                for(int i = 0; i < size; i++)
+                {
+                    file >> val;
+                    if(file.fail())
+                    {
+                        cout << "File error - READ DATA" << endl;
+                        break;
+                    }
+                    else
+                        push(val);
+                }
+            file.close();
+        }
+        else
+            cout << "File error - OPEN" << endl;
     }
 
     void clear() {

@@ -1,4 +1,4 @@
-#include "../../Structures/Table.h"
+#include "../../Structures/Table.cpp"
 #include <gtest/gtest.h>
 
 TEST(TableTest, InsertBackTest) {

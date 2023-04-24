@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../../Structures/Heap.h"
+#include "../../Structures/Heap.cpp"
 #include <string>
 
 using namespace std;
@@ -8,7 +8,7 @@ TEST(HeapTest, EmptyHeap)
 {
     Heap heap;
     EXPECT_EQ(0, heap.getSize());
-    EXPECT_EQ(-1, heap.peek());
+    ASSERT_DEATH(heap.peek(), "");
     heap.pop();
     EXPECT_EQ(0, heap.getSize());
 }
@@ -47,7 +47,7 @@ TEST(HeapTest, LargerHeap)
     EXPECT_EQ(1, heap.peek());
     heap.pop();
     EXPECT_EQ(0, heap.getSize());
-    EXPECT_EQ(-1, heap.peek());
+    ASSERT_DEATH(heap.peek(), "");
 }
 
 

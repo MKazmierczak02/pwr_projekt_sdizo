@@ -6,6 +6,7 @@
 #include "Handlers/TableHandler.h"
 #include "Handlers/HeapHandler.h"
 #include "Handlers/ListHandler.h"
+#include "Handlers/BSTHandler.h"
 
 using namespace std;
 
@@ -15,7 +16,6 @@ void printMenu() {
     cout << "2. Lista dwukierunkowa" << endl;
     cout << "3. Kopiec binarny" << endl;
     cout << "4. Drzewo przeszukiwan binarnych (BST)" << endl;
-    cout << "5. Drzewo czerowno-czarne " << endl;
     cout << "0. Wyjdz" << endl;
 }
 
@@ -42,9 +42,7 @@ int main() {
                 break;
             }
             case 4: {
-                break;
-            }
-            case 5: {
+                BSTHandler::handle();
                 break;
             }
             case 0: {

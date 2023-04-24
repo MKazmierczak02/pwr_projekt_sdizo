@@ -1,8 +1,5 @@
-//
-// Created by ja on 2023-03-15.
-//
 #include <iostream>
-#include "../Structures/List.h"
+#include "../Structures/List.cpp"
 #include <ctime>
 using namespace std;
 
@@ -17,7 +14,8 @@ public:
         cout << "3. Usun element" << endl;
         cout << "4. Pobierz element" << endl;
         cout << "5. Wczytaj liste z pliku" << endl;
-        cout << "6. Wypelnmij liste losowymi wartosciami z zakresu 1-100" << endl;
+        cout << "6. Wypelnij liste losowymi wartosciami z zakresu 1-100" << endl;
+        cout << "7. Usun liste" << endl;
         cout << "0. Wyjdz" << endl;
     }
 
@@ -187,6 +185,11 @@ public:
                     cout << endl << "Podaj wielkosc listy: " <<endl;
                     cin >> size;
                     list.fillUpWithRandomValues(size);
+                    break;
+                }
+                case 7:{
+                    int size;
+                    list.clear();
                     break;
                 }
                 case 0: {

@@ -52,6 +52,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/Handlers/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/ja/Desktop/studia/sdizo/pwr_projekt_sdizo/projekt/cmake-build-debug/TimeTests/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

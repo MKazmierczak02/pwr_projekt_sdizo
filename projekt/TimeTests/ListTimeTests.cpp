@@ -3,7 +3,7 @@
 #include <ctime>
 #include <iomanip>
 #include <vector>
-#include "../Structures/List.h"
+#include "../Structures/List.cpp"
 using namespace std;
 vector<int> sizes = { 50000, 250000, 500000, 750000, 1000000 }; // rozmiary listy do przetestowania
 
